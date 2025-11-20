@@ -1,4 +1,4 @@
-baseURL = 'https://192.168.198.130'  # Change this to your VM IP
+baseURL = 'http://192.168.198.130/'  # Change this to your VM IP
 languageCode = 'en-us'
 title = 'My DevOps Journey'
 theme = 'PaperMod'
