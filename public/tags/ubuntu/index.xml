@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ubuntu on My DevOps Journey</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on My DevOps Journey</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Week 1: Starting My DevOps Journey - Ubuntu Server on VMware</title>
+      <link>http://localhost:1313/posts/week-1-ubuntu-server-setup/</link>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/week-1-ubuntu-server-setup/</guid>
+      <description>&lt;h2 id=&#34;the-beginning&#34;&gt;The Beginning&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve decided to dive into DevOps, cloud technologies, and backend engineering. While I&amp;rsquo;m waiting for my physical server to arrive( an old beat up system unit), I&amp;rsquo;m not wasting any time I&amp;rsquo;ve set up Ubuntu Server on VMware Fusion to start building my homelab skills.&lt;/p&gt;
+&lt;h2 id=&#34;what-ive-accomplished-so-far&#34;&gt;What I&amp;rsquo;ve Accomplished So Far&lt;/h2&gt;
+&lt;h3 id=&#34;setting-up-ubuntu-server-on-vmware-fusion&#34;&gt;Setting Up Ubuntu Server on VMware Fusion&lt;/h3&gt;
+&lt;p&gt;Getting Ubuntu Server running in a VM was my first step. The goal was simple: create an environment where I could experiment, break things, and learn without consequences.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

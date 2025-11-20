@@ -1,0 +1,27 @@
+baseURL = 'http://192.168.198.130/'  # Change this to your VM IP
+languageCode = 'en-us'
+title = 'My DevOps Journey'
+theme = 'PaperMod'
+
+[params]
+  description = "Documenting my journey into DevOps, Docker, Kubernetes, and Cloud"
+  author = "Emmanuel B Soetan"
+  
+[params.homeInfoParams]
+  Title = "Welcome to My DevOps Blog"
+  Content = "Follow my journey as I learn DevOps, containerization, and cloud technologies"
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 1
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 3

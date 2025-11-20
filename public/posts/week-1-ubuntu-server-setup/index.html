@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Week 1: Starting My DevOps Journey - Ubuntu Server on VMware | My DevOps Journey</title>
+<meta name="keywords" content="homelab, ubuntu, vmware, docker, portainer, devops">
+<meta name="description" content="The Beginning
+I&rsquo;ve decided to dive into DevOps, cloud technologies, and backend engineering. While I&rsquo;m waiting for my physical server to arrive( an old beat up system unit), I&rsquo;m not wasting any time I&rsquo;ve set up Ubuntu Server on VMware Fusion to start building my homelab skills.
+What I&rsquo;ve Accomplished So Far
+Setting Up Ubuntu Server on VMware Fusion
+Getting Ubuntu Server running in a VM was my first step. The goal was simple: create an environment where I could experiment, break things, and learn without consequences.">
+<meta name="author" content="Emmanuel B Soetan">
+<link rel="canonical" href="http://localhost:1313/posts/week-1-ubuntu-server-setup/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.343cc480b9ffc8f04ccbe5e968ad674880cab773ec19905e93033065c1e7a804.css" integrity="sha256-NDzEgLn/yPBMy&#43;XpaK1nSIDKt3PsGZBekwMwZcHnqAQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/week-1-ubuntu-server-setup/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My DevOps Journey (Alt + H)">My DevOps Journey</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Week 1: Starting My DevOps Journey - Ubuntu Server on VMware
+    </h1>
+    <div class="post-meta"><span title='2025-11-20 00:00:00 +0000 UTC'>November 20, 2025</span>&nbsp;·&nbsp;<span>Emmanuel B Soetan</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="the-beginning">The Beginning<a hidden class="anchor" aria-hidden="true" href="#the-beginning">#</a></h2>
+<p>I&rsquo;ve decided to dive into DevOps, cloud technologies, and backend engineering. While I&rsquo;m waiting for my physical server to arrive( an old beat up system unit), I&rsquo;m not wasting any time I&rsquo;ve set up Ubuntu Server on VMware Fusion to start building my homelab skills.</p>
+<h2 id="what-ive-accomplished-so-far">What I&rsquo;ve Accomplished So Far<a hidden class="anchor" aria-hidden="true" href="#what-ive-accomplished-so-far">#</a></h2>
+<h3 id="setting-up-ubuntu-server-on-vmware-fusion">Setting Up Ubuntu Server on VMware Fusion<a hidden class="anchor" aria-hidden="true" href="#setting-up-ubuntu-server-on-vmware-fusion">#</a></h3>
+<p>Getting Ubuntu Server running in a VM was my first step. The goal was simple: create an environment where I could experiment, break things, and learn without consequences.</p>
+<p><strong>Key steps:</strong></p>
+<ul>
+<li>Downloaded Ubuntu Server ISO</li>
+<li>Created a new VM in VMware Fusion</li>
+<li>Configured network settings for SSH access</li>
+<li>Completed the installation</li>
+</ul>
+<h3 id="ssh-access---my-first-win">SSH Access - My First Win<a hidden class="anchor" aria-hidden="true" href="#ssh-access---my-first-win">#</a></h3>
+<p>One of the most satisfying moments was successfully SSH-ing into my Ubuntu Server from my Mac terminal. No more switching to the VMware window - just clean terminal access.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh username@vm-ip-address
+</span></span></code></pre></div><p>This might seem basic, but it&rsquo;s the foundation of how you&rsquo;ll interact with servers in the real world. No GUI, just command line.</p>
+<h3 id="installing-docker">Installing Docker<a hidden class="anchor" aria-hidden="true" href="#installing-docker">#</a></h3>
+<p>Docker is essential for modern DevOps, so it was my first major installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Downloaded and ran Docker installation script</span>
+</span></span><span style="display:flex;"><span>curl -fsSL https://get.docker.com -o get-docker.sh
+</span></span><span style="display:flex;"><span>sudo sh get-docker.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Added my user to the docker group</span>
+</span></span><span style="display:flex;"><span>sudo usermod -aG docker $USER
+</span></span></code></pre></div><p>After logging out and back in, I could run Docker commands without sudo - a small quality of life improvement that matters.</p>
+<h3 id="portainer---my-container-management-dashboard">Portainer - My Container Management Dashboard<a hidden class="anchor" aria-hidden="true" href="#portainer---my-container-management-dashboard">#</a></h3>
+<p>Rather than managing everything purely through CLI (though I will be doing that too), I installed Portainer to visualize what&rsquo;s happening with my containers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker volume create portainer_data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>docker run -d <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 9000:9000 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 9443:9443 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name portainer <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --restart<span style="color:#f92672">=</span>always <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v portainer_data:/data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  portainer/portainer-ce:latest
+</span></span></code></pre></div><p>Now I can access a web interface at <code>http://my-vm-ip:9000</code> or for https <code>https://my-vm-ip:9443</code> and see all my containers, images, volumes, and networks at a glance.</p>
+<h2 id="why-this-approach">Why This Approach?<a hidden class="anchor" aria-hidden="true" href="#why-this-approach">#</a></h2>
+<p>I deliberately chose <strong>plain Ubuntu Server</strong> over user-friendly options like CasaOS because:</p>
+<ol>
+<li><strong>Real world relevance</strong>: This is what I&rsquo;ll work with professionally</li>
+<li><strong>No abstractions</strong>: I need to understand what&rsquo;s happening under the hood</li>
+<li><strong>Transferable skills</strong>: Everything I learn applies to cloud environments (AWS, Azure, GCP)</li>
+<li><strong>Problem solving</strong>: When things break, I&rsquo;ll learn to fix them</li>
+</ol>
+<h2 id="whats-next">What&rsquo;s Next?<a hidden class="anchor" aria-hidden="true" href="#whats-next">#</a></h2>
+<p>My plan for the coming weeks:</p>
+<ul>
+<li><strong>Week 2</strong>: Deploy my first multi-container application with docker compose</li>
+<li><strong>Week 3</strong>: Set up monitoring with Prometheus and Grafana (If I can figure it out)</li>
+<li><strong>Week 4</strong>: Install and explore Kubernetes (probably k3s)</li>
+<li><strong>Ongoing</strong>: Document everything, break things, learn from failures</li>
+</ul>
+<h2 id="lessons-learned">Lessons Learned<a hidden class="anchor" aria-hidden="true" href="#lessons-learned">#</a></h2>
+<p><strong>Start simple.</strong> I was tempted to jump straight into Kubernetes, but understanding Docker fundamentals first is crucial. You can&rsquo;t orchestrate containers if you don&rsquo;t understand how containers work.</p>
+<p><strong>Documentation matters.</strong> That&rsquo;s why I&rsquo;m writing this blog. Future me (and maybe others) will benefit from these notes.</p>
+<p><strong>VMs are perfect for learning.</strong> I can snapshot, experiment, break things, and restore without consequences. When my physical server arrives, I&rsquo;ll already know what I&rsquo;m doing.</p>
+<h2 id="current-setup">Current Setup<a hidden class="anchor" aria-hidden="true" href="#current-setup">#</a></h2>
+<ul>
+<li><strong>Host</strong>: MacBook Pro 2016  running VMware Fusion</li>
+<li><strong>VM</strong>: Ubuntu Server (latest LTS)</li>
+<li><strong>Installed</strong>: Docker, Portainer</li>
+<li><strong>Access</strong>: SSH from terminal</li>
+<li><strong>Status</strong>: Ready to build</li>
+</ul>
+<p>The journey has just begun. Next week, I&rsquo;ll be deploying actual applications and diving deeper into Docker networking and volumes or just breaking things LOL.</p>
+<hr>
+<p><em>This is part of my weekly DevOps learning series. Follow along as I document my journey from beginner to proficient.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
+      <li><a href="http://localhost:1313/tags/ubuntu/">Ubuntu</a></li>
+      <li><a href="http://localhost:1313/tags/vmware/">Vmware</a></li>
+      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
+      <li><a href="http://localhost:1313/tags/portainer/">Portainer</a></li>
+      <li><a href="http://localhost:1313/tags/devops/">Devops</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">My DevOps Journey</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
